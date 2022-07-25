@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { WeatherHttp } from '../http/weather.http';
 
 import './App.css';
 
 function App() {
   const [weather, setWeather] = useState<any>({})
 
-  const fetchData = async () => {
-    const data = await fetch("https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=3f6f5b5d8c57fa8889630a6fc3cd6c72")
-    setWeather(await data.json())
-  }
+  const weatherHttp = useMemo(() => new WeatherHttp() , [])
   
+  const fetchData = async() => {
+    const data = await weatherHttp.getWeatherData()
+    setWeather(data)
+  }
+  console.log("rendered")
 
   useEffect(() => {
     

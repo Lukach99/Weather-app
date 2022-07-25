@@ -7,8 +7,8 @@ abstract class HttpClient{
        this._apiKey = apiKey;
    }
    
-   protected url(url: string): string {
-       return `${this._baseUrl}${url}`;
+   protected url(url: string, type:string): string {
+       return `${this._baseUrl}${url}${this._apiKey}${type}`;
      }
 
    
