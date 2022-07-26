@@ -7,8 +7,8 @@ export class WeatherHttp extends HttpClient {
         super(WEATHER_API_URL, WEATHER_API_KEY)
     }
 
-    public async getWeatherData(){
-        const {data} = await axios.get(this.url(WEATHER_API_BASE_URL, "lat=35&lon=139"))
+    public async getWeatherData(lat:string , lon:string){
+        const {data} = await axios.get(this.url(WEATHER_API_BASE_URL, `units=metric&lat=${lat}&lon=${lon}`))
         return data
     }
 }

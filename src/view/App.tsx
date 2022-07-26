@@ -10,7 +10,7 @@ function App() {
   const weatherHttp = useMemo(() => new WeatherHttp() , [])
   
   const fetchData = async() => {
-    const data = await weatherHttp.getWeatherData()
+    const data = await weatherHttp.getWeatherData("45","45")
     setWeather(data)
   }
   console.log("rendered")
