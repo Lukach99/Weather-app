@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import SearchBar from '../components/SearchBar';
 import { WeatherHttp } from '../http/weather.http';
 
 import './App.css';
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <div className="App">
+      <SearchBar></SearchBar>
       <p>{weather.name || "null"}</p>
     </div>
   );
