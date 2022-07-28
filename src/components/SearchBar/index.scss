@@ -1,0 +1,26 @@
+.search-box{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 25%;
+
+    input{
+        width: 100%;
+        font-size: 18px;
+        border: none;
+        border-bottom: 2px solid black;
+        padding: 10px 10px 5px;
+        outline: none;
+    }
+}
+
+.search-dropdown{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    margin-top: 10px;
+}

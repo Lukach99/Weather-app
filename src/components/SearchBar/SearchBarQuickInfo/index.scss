@@ -1,0 +1,32 @@
+.quick-info{
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 10px;
+
+    &__weather{
+       display: flex;
+       flex-direction: column; 
+
+       h2{
+        margin-top: 0;
+        font-size: 30px;
+       }
+
+       h3{
+        border-bottom: 2px solid black;
+        padding-bottom: 5px;
+       }
+    }
+
+    &__description{
+        p{
+            margin-top: 0;
+            font-weight: 500;
+        }
+    }
+}

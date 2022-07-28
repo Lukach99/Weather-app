@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import SearchBar from '../components/SearchBar';
 import { WeatherHttp } from '../http/weather.http';
 
-import './App.css';
+import './App.scss';
 
 function App() {
   const [weather, setWeather] = useState<any>({})
@@ -10,7 +10,7 @@ function App() {
   const weatherHttp = useMemo(() => new WeatherHttp() , [])
   
   const fetchData = async() => {
-    const data = await weatherHttp.getWeatherData("45","45")
+    const data = await weatherHttp.getWeatherData(45,45)
     setWeather(data)
   }
   console.log("rendered")
@@ -26,7 +26,6 @@ function App() {
   return (
     <div className="App">
       <SearchBar></SearchBar>
-      <p>{weather.name || "null"}</p>
     </div>
   );
 }

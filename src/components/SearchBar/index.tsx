@@ -1,6 +1,8 @@
+import "./index.scss"
 import { useCallback, useEffect, useMemo, useState } from "react"
 import { GeolocationHttp } from "../../http/geolocation.http"
 import { WeatherHttp } from "../../http/weather.http"
+import SearchBarQuickInfo from "./SearchBarQuickInfo"
 
 const SearchBar = () => {
     const [query, setQuery] = useState("")
@@ -49,13 +51,15 @@ const SearchBar = () => {
       
     }, [query])
     
+    console.log("results" , queryResults.length)
 
-    return <div>
+    return <div className="search-box">
         <input type="text" placeholder="Enter city" onChange={(event) => { updateDebounce(event.target.value) }}/>
-        {queryResults && <div>
-            <ul>
-                {queryResults.map((item:any, index:number) => <li key={index}>{item.lon}</li>)}
-            </ul>
+        {queryResults.length > 0 && <div className="search-dropdown">
+            
+                {queryResults.map((item:any, index:number) => <SearchBarQuickInfo key={index} location={[item.lat, item.lon]}></SearchBarQuickInfo>)}
+        
+             {/* <SearchBarQuickInfo location={queryResults}></SearchBarQuickInfo> */} 
             
         </div>
         }
